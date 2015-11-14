@@ -1,0 +1,15 @@
+# TODO: generate and distribute tokens for other cloud providers.
+DAEMON_ARGS="$DAEMON_ARGS
+--insecure_bind_address=0.0.0.0 \
+--etcd_servers=http://127.0.0.1:4001 \
+--service-cluster-ip-range=10.254.0.0/16 \
+--v=2 \
+--insecure-port=8080 \
+--allow_privileged=False \
+--kubelet_port=10250 \
+--runtime_config=api/v1beta3 \
+--admission_control=NamespaceLifecycle,NamespaceAutoProvision,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota \
+--service_account_key_file=/var/kubernetes/kube-serviceaccount.key \
+--cluster_name=kubernetes"
+
+#--tls_cert_file=/srv/kubernetes/server.cert --tls_private_key_file=/srv/kubernetes/server.key --secure_port=6443 --token_auth_file=/srv/kubernetes/known_tokens.csv
