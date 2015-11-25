@@ -1,7 +1,7 @@
 #!/bin/bash
 
 K8S_VERSION=${K8S_VERSION:-1.1.1}
-REV=${REV:-1}
+REV=${REV:-3}
 
 rm -rf kubernetes/source/kubernetes/v$K8S_VERSION
 rm -f kubernetes/builds/kubernetes-master_$K8S_VERSION_amd64.deb
@@ -44,13 +44,13 @@ fpm -s dir -n "kubernetes-master" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubectl=/usr/bin/kubectl \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubelet=/usr/bin/kubelet \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/hyperkube=/usr/bin/hyperkube \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/linkcheck=/usr/bin/linkcheck \
+../source/kubernetes/v$K8S_VERSION/kubernetes/cluster/addons/kube-ui/kube-ui-rc.yaml=/usr/share/doc/kubernetes-master/kube-ui-rc.yaml \
+../source/kubernetes/v$K8S_VERSION/kubernetes/cluster/addons/kube-ui/kube-ui-svc.yaml=/usr/share/doc/kubernetes-master/kube-ui-svc.yaml \
 services/systemd/kube-apiserver.service=/lib/systemd/system/kube-apiserver.service \
 services/systemd/kube-controller-manager.service=/lib/systemd/system/kube-controller-manager.service \
 services/systemd/kube-scheduler.service=/lib/systemd/system/kube-scheduler.service \
-services/systemd/kubelet.service=/lib/systemd/system/kubelet.service \
 etc/kubernetes/master/kubelet.conf \
 etc/kubernetes/master/apiserver.conf \
 etc/kubernetes/master/config.conf \
