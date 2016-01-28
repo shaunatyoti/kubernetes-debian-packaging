@@ -1,7 +1,7 @@
 #!/bin/bash
 
-K8S_VERSION=${K8S_VERSION:-1.1.1}
-REV=${REV:-4}
+K8S_VERSION=${K8S_VERSION:-1.1.4}
+REV=${REV:-1}
 
 rm -rf kubernetes/source/kubernetes/v$K8S_VERSION
 rm -f kubernetes/builds/kubernetes-master_$K8S_VERSION_amd64.deb
