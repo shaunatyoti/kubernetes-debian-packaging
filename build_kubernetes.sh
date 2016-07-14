@@ -41,11 +41,14 @@ fpm -s dir -n "kubernetes-master" \
 --description "Kubernetes master binaries and services" \
 --url "https://www.yoti.com" \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/kube-apiserver \
+../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-apiserver=/usr/bin/federation-apiserver \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/kube-controller-manager \
+../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-controller-manager=/usr/bin/federation-controller-manager \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-scheduler=/usr/bin/kube-scheduler \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubectl=/usr/bin/kubectl \
 ../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/hyperkube=/usr/bin/hyperkube \
-../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/linkcheck=/usr/bin/linkcheck \
+../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kube-dns=/usr/bin/kube-dns \
+../source/kubernetes/v$K8S_VERSION/kubernetes/server/bin/kubemark=/usr/bin/kubemark \
 services/systemd/kube-apiserver.service=/lib/systemd/system/kube-apiserver.service \
 services/systemd/kube-controller-manager.service=/lib/systemd/system/kube-controller-manager.service \
 services/systemd/kube-scheduler.service=/lib/systemd/system/kube-scheduler.service \
