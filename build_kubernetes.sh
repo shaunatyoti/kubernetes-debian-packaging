@@ -1,6 +1,6 @@
 #!/bin/bash
 
-K8S_VERSION=${K8S_VERSION:-1.4.5}
+K8S_VERSION=${K8S_VERSION:-1.4.6}
 REV=${REV:-1}
 
 rm -rf kubernetes/source/kubernetes/v$K8S_VERSION
